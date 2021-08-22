@@ -3,11 +3,6 @@ class Symbol(object):
         self.name = n
         self.type = t
 
-    def __eq__(self, other):
-        if isinstance(other, Symbol):
-            return self.type == other.type
-        return False
-
 class BuiltinTypeSymbol(Symbol):
     def __init__(self, n):
         super().__init__(n)

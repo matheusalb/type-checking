@@ -71,7 +71,7 @@ class BuildSymbolTableVisitor(NodeVisitor):
     
     def visit_IfStm(self,node):
         tipo_condicao = self.visit(node.cond)
-        if tipo_condicao == self.BOOLEAN():
+        if tipo_condicao.type == self.BOOLEAN().type:
             self.initializeScope('IfStm')
             for stm in node.stmts:
                 self.visit(stm)
@@ -81,7 +81,7 @@ class BuildSymbolTableVisitor(NodeVisitor):
     
     def visit_WhileStm(self,node):
         tipo_condicao = self.visit(node.cond)
-        if tipo_condicao == self.BOOLEAN():
+        if tipo_condicao.type == self.BOOLEAN().type:
             self.initializeScope('WhileStm')
             for stm in node.stmts:
                 self.visit(stm)
@@ -164,7 +164,7 @@ class BuildSymbolTableVisitor(NodeVisitor):
     def visit_SumExpr(self,node):
         left_type = self.visit(node.left)
         right_type = self.visit(node.right)
-        if left_type == self.INT() and right_type == self.INT():
+        if left_type.type == self.INT().type and right_type.type == self.INT().type:
             return self.INT()
         else: 
             self.erro('Tipos incompatíveis: ' + str(left_type) + ' e ' + str(right_type))
@@ -172,7 +172,7 @@ class BuildSymbolTableVisitor(NodeVisitor):
     def visit_SubExpr(self,node):
         left_type = self.visit(node.left)
         right_type = self.visit(node.right)
-        if left_type == self.INT() and right_type == self.INT():
+        if left_type.type == self.INT().type and right_type.type == self.INT().type:
             return self.INT()
         else: 
             self.erro('Tipos incompatíveis: ' + str(left_type) + ' e ' + str(right_type))
@@ -180,7 +180,7 @@ class BuildSymbolTableVisitor(NodeVisitor):
     def visit_MulExpr(self,node):
         left_type = self.visit(node.left)
         right_type = self.visit(node.right)
-        if left_type == self.INT() and right_type == self.INT():
+        if left_type.type == self.INT().type and right_type.type == self.INT().type:
             return self.INT()
         else: 
             self.erro('Tipos incompatíveis: ' + str(left_type) + ' e ' + str(right_type))
@@ -188,7 +188,7 @@ class BuildSymbolTableVisitor(NodeVisitor):
     def visit_DivExpr(self,node):
         left_type = self.visit(node.left)
         right_type = self.visit(node.right)
-        if left_type == self.INT() and right_type == self.INT():
+        if left_type == self.INT().type and right_type == self.INT().type:
             return self.INT()
         else: 
             self.erro('Tipos incompatíveis: ' + str(left_type) + ' e ' + str(right_type))
@@ -199,7 +199,7 @@ class BuildSymbolTableVisitor(NodeVisitor):
     def visit_EqualsExpr(self,node):
         left_type = self.visit(node.left)
         right_type = self.visit(node.right)
-        if left_type == right_type :
+        if left_type.type == right_type.type :
             return self.BOOLEAN()
         else: 
             self.erro('Tipos incompatíveis: ' + str(left_type) + ' e ' + str(right_type))
@@ -207,7 +207,7 @@ class BuildSymbolTableVisitor(NodeVisitor):
     def visit_NotEqualsExpr(self,node):
         left_type = self.visit(node.left)
         right_type = self.visit(node.right)
-        if left_type == right_type :
+        if left_type.type == right_type.type :
             return self.BOOLEAN()
         else: 
             self.erro('Tipos incompatíveis: ' + str(left_type) + ' e ' + str(right_type))
@@ -216,7 +216,7 @@ class BuildSymbolTableVisitor(NodeVisitor):
     def visit_GreaterThanEqualsExpr(self,node):
         left_type = self.visit(node.left)
         right_type = self.visit(node.right)
-        if left_type == right_type :
+        if left_type.type == right_type.type :
             return self.BOOLEAN()
         else: 
             self.erro('Tipos incompatíveis: ' + str(left_type) + ' e ' + str(right_type))
@@ -224,7 +224,7 @@ class BuildSymbolTableVisitor(NodeVisitor):
     def visit_GreaterThanExpr(self,node):
         left_type = self.visit(node.left)
         right_type = self.visit(node.right)
-        if left_type == right_type :
+        if left_type.type == right_type.type :
             return self.BOOLEAN()
         else: 
             self.erro('Tipos incompatíveis: ' + str(left_type) + ' e ' + str(right_type))
@@ -232,7 +232,7 @@ class BuildSymbolTableVisitor(NodeVisitor):
     def visit_LessThanEqualsExpr(self,node):
         left_type = self.visit(node.left)
         right_type = self.visit(node.right)
-        if left_type == right_type :
+        if left_type.type == right_type.type :
             return self.BOOLEAN()
         else: 
             self.erro('Tipos incompatíveis: ' + str(left_type) + ' e ' + str(right_type))
@@ -240,7 +240,7 @@ class BuildSymbolTableVisitor(NodeVisitor):
     def visit_LessThanExpr(self,node):
         left_type = self.visit(node.left)
         right_type = self.visit(node.right)
-        if left_type == right_type :
+        if left_type.type == right_type.type :
             return self.BOOLEAN()
         else: 
             self.erro('Tipos incompatíveis: ' + str(left_type) + ' e ' + str(right_type))
