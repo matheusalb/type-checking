@@ -1,0 +1,30 @@
+PROGRAM nested
+PRINT "Type a number"
+DECL num : INT
+DECL c : BOOLEAN
+DECL s : STRING
+INPUT num
+LET c = num > 0
+BLOCK teste BEGIN
+    DECL cond : BOOLEAN
+    WHILE c REPEAT
+        LET cond = num > 100
+        IF cond THEN
+            LET s = "Valor atual é maior que 100"
+        ENDIF
+        LET cond = num < 100
+        IF cond THEN
+            LET s = "Valor atual é menor que 100"
+        ENDIF
+        LET cond = num == 100
+        IF cond THEN
+            LET s = "Valor atual é 100"
+        ENDIF
+        PRINT s
+        PRINT num
+        LET num = num - 1
+        LET c = num > 0
+    ENDWHILE
+ENDBLOCK
+PRINT "encerrou"
+ENDPROGRAM

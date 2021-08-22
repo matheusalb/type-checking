@@ -1,0 +1,16 @@
+PROGRAM test
+PRINT "Digite um número: "
+DECL a : INT
+INPUT a
+PRINT "Digite mais um número: "
+DECL b : INT
+INPUT b
+PROCEDURE dobra(x:INT) BEGIN
+    PRINT 2*x
+ENDPROCEDURE
+PROCEDURE soma(x:INT; y:INT) BEGIN
+    PRINT x+y
+ENDPROCEDURE
+CALL dobra(a)
+CALL soma(a,b)
+ENDPROGRAM

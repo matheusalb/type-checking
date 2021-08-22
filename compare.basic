@@ -1,0 +1,29 @@
+PROGRAM compare
+  DECL i : INT
+  DECL num : INT
+  PRINT "Type a number"
+  INPUT num
+  LET i = num
+  
+  BLOCK inner BEGIN
+    DECL num : BOOLEAN
+    LET num = i > 10
+    IF num THEN 
+       PRINT "maior que 10"
+    ENDIF
+    BLOCK innerinner BEGIN
+      DECL num : STRING
+      LET num = "i > 10"
+      PRINT num
+    ENDBLOCK
+  ENDBLOCK
+  IF num > 100 THEN
+    PRINT "Maior que 100"
+  ENDIF
+  IF num < 100 THEN
+    PRINT "Menor que 100"
+  ENDIF
+  IF num == 100 THEN
+    PRINT "Digitou 100"
+  ENDIF
+ENDPROGRAM

@@ -1,0 +1,23 @@
+PROGRAM test
+PRINT "Digite um número: "
+DECL a : INT
+INPUT a
+PRINT "Digite um valor booleano: "
+DECL c : BOOLEAN
+INPUT c
+PRINT "Digite uma string: "
+DECL s : STRING
+INPUT s
+IF c THEN
+    DECL x : INT
+    DECL y : INT
+    DECL w : INT
+    DECL z : INT
+    LET x = 2
+    LET y = 3
+    LET w = 4
+    LET z = y*w/x
+    PRINT a+x+y+w+z
+ENDIF
+PRINT s
+ENDPROGRAM
