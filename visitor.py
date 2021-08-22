@@ -188,7 +188,7 @@ class BuildSymbolTableVisitor(NodeVisitor):
     def visit_DivExpr(self,node):
         left_type = self.visit(node.left)
         right_type = self.visit(node.right)
-        if left_type == self.INT().type and right_type == self.INT().type:
+        if left_type.type == self.INT().type and right_type.type == self.INT().type:
             return self.INT()
         else: 
             self.erro('Tipos incompatíveis: ' + str(left_type) + ' e ' + str(right_type))
